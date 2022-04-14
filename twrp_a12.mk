@@ -1,6 +1,5 @@
- 
 #
-# Copyright (C) 2021 Durasame
+# Copyright (C) 2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,34 +13,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+DEVICE_PATH := device/samsung/a12
+
 # Release name
 PRODUCT_RELEASE_NAME := a12
 
-# Inherit from the common Open Source product configuration
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
+# Inherit some common TWRP stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# Include any options that can't be included in BoardConfig.mk
-$(call inherit-product, device/samsung/a12/device.mk)
-
-# Dynamic Partition
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    android.hardware.fastboot@1.0-impl-mock.recovery \
-    fastbootd
+# Inherit device configuration
+$(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
 
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/recovery/root,recovery/root)
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := twrp_a12
 PRODUCT_DEVICE := a12
 PRODUCT_MODEL := SM-A125F
-PRODUCT_BRAND := Samsung
-PRODUCT_MANUFACTURER := Samsung
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
