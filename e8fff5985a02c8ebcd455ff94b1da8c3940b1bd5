@@ -16,6 +16,23 @@
       "message": "Test build is succesfull. Could you push it to production to fix some important issues.\n\nCheers",
       "revId": "e8fff5985a02c8ebcd455ff94b1da8c3940b1bd5",
       "serverId": "9c1c7d72-6534-4d44-b0ea-39f63e804833"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3c5639c_1b7f09c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2022-05-09T23:15:23Z",
+      "side": 1,
+      "message": "Thanks, the build will be up shortly.",
+      "revId": "e8fff5985a02c8ebcd455ff94b1da8c3940b1bd5",
+      "serverId": "9c1c7d72-6534-4d44-b0ea-39f63e804833"
     }
   ]
 }
